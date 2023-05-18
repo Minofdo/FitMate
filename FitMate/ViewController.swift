@@ -13,9 +13,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setUpView()
     }
+    
+    @objc func nextView() {
+        //navigationController?.pushViewController(UIViewController(), animated: true)
+    }
 
     func setUpView() {
         view.backgroundColor = .purple
+        navigationController?.navigationBar.isHidden = true
         
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,6 +88,7 @@ class ViewController: UIViewController {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.systemPink.cgColor
         button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(nextView), for: .touchUpInside)
         
         view.addSubview(scrollView)
         scrollView.addSubview(fitMate)
