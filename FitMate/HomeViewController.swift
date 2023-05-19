@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
         
         navigationController?.viewControllers = [self]
         
-        view.backgroundColor = .white
+        view.backgroundColor = .red
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .purple
         navigationController?.navigationBar.tintColor = .white

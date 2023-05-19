@@ -21,16 +21,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let defaults = UserDefaults.standard
-        let goal = defaults.string(forKey: "GOAL")
-        if (goal != nil && goal?.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
-            navigationController?.pushViewController(HomeViewController(), animated: false)
-        } else {
-            setUpView()
-            
-            ageField.text = (defaults.integer(forKey: "AGE") == 0) ? "" : String(defaults.integer(forKey: "AGE"))
-            heightField.text = (defaults.double(forKey: "HEIGHT") == 0) ? "" : String(defaults.double(forKey: "HEIGHT"))
-            weightField.text = (defaults.double(forKey: "WEIGHT") == 0) ? "" : String(defaults.double(forKey: "WEIGHT"))
-        }
+        setUpView()
+        
+        ageField.text = (defaults.integer(forKey: "AGE") == 0) ? "" : String(defaults.integer(forKey: "AGE"))
+        heightField.text = (defaults.double(forKey: "HEIGHT") == 0) ? "" : String(defaults.double(forKey: "HEIGHT"))
+        weightField.text = (defaults.double(forKey: "WEIGHT") == 0) ? "" : String(defaults.double(forKey: "WEIGHT"))
     }
     
     @objc func nextView() {

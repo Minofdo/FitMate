@@ -20,7 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         // Navigation controller will allow the app to navigate between views
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        let defaults = UserDefaults.standard
+        let goal = defaults.string(forKey: "GOAL")
+        if (goal != nil && goal?.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
+            window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        }
         window?.makeKeyAndVisible()
     }
 
