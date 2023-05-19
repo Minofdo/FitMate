@@ -16,40 +16,88 @@ class ViewController: UIViewController {
     var invalidAge = false;
     var invalidHeight = false;
     var invalidWeight = false;
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
+        
+        let defaults = UserDefaults.standard
+        let goal = defaults.string(forKey: "GOAL")
+        if (goal != nil && goal?.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
+            navigationController?.pushViewController(HomeViewController(), animated: false)
+        } else {
+            setUpView()
+            
+            ageField.text = (defaults.integer(forKey: "AGE") == 0) ? "" : String(defaults.integer(forKey: "AGE"))
+            heightField.text = (defaults.double(forKey: "HEIGHT") == 0) ? "" : String(defaults.double(forKey: "HEIGHT"))
+            weightField.text = (defaults.double(forKey: "WEIGHT") == 0) ? "" : String(defaults.double(forKey: "WEIGHT"))
+        }
     }
     
     @objc func nextView() {
-        var ageResult = ageField.text?.range(
+        var numAge: Int = 0;
+        var numHeight: Double = 0;
+        var numWeight: Double = 0;
+        
+        let ageResult = ageField.text?.range(
             of: "^[0-9]+$",
             options: .regularExpression
         )
-        if (ageResult == nil) {
-            invalidAge = true;
+        invalidAge = (ageResult == nil)
+        if (!invalidAge) {
+            numAge = Int(ageField.text ?? "0")!
+            if (numAge < 5 || numAge > 99) {
+                invalidAge = true
+            }
         }
-        var heightResult = heightField.text?.range(
-            of: "^[0-9]*(\\.[0-9]{0,})?$",
+        let heightResult = heightField.text?.range(
+            of: "^[0-9]+(\\.[0-9]{0,})?$",
             options: .regularExpression
         )
-        if (heightResult == nil) {
-            invalidHeight = true;
+        invalidHeight = (heightResult == nil)
+        if (!invalidHeight) {
+            numHeight = Double(heightField.text ?? "0")!
+            if (numHeight < 30 || numHeight > 250) {
+                invalidHeight = true
+            }
         }
-        var weightResult = weightField.text?.range(
-            of: "^[0-9]*(\\.[0-9]{0,})?$",
+        let weightResult = weightField.text?.range(
+            of: "^[0-9]+(\\.[0-9]{0,})?$",
             options: .regularExpression
         )
-        if (weightResult == nil) {
-            invalidWeight = true;
+        invalidWeight = (weightResult == nil)
+        if (!invalidWeight) {
+            numWeight = Double(weightField.text ?? "0")!
+            if (numWeight < 5 || numWeight > 250) {
+                invalidWeight = true
+            }
         }
+        
+        ageField.layer.borderWidth = (invalidAge ? 2 : 0)
+        heightField.layer.borderWidth = (invalidHeight ? 2 : 0)
+        weightField.layer.borderWidth = (invalidWeight ? 2 : 0)
+        
+        print(invalidAge, invalidHeight, invalidWeight)
+        
         if (invalidAge || invalidHeight || invalidWeight) {
+            let errorAlert = UIAlertController(title: "Alert", message: "Please fill all fields with valid values", preferredStyle: .alert)
+            errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(errorAlert, animated: true, completion: nil)
             return
         }
-        //navigationController?.pushViewController(BMIViewController(), animated: true)
+        
+        let bmi = (numWeight/pow((numHeight/100), 2))
+        let bmiView = BMIViewController()
+        bmiView.bmi = bmi
+        bmiView.age = numAge
+        
+        let defaults = UserDefaults.standard
+        defaults.set(numAge, forKey: "AGE")
+        defaults.set(numHeight, forKey: "HEIGHT")
+        defaults.set(numWeight, forKey: "WEIGHT")
+        
+        navigationController?.pushViewController(bmiView, animated: true)
     }
-
+    
     func setUpView() {
         view.backgroundColor = .purple
         let appearance = UINavigationBarAppearance()
@@ -88,6 +136,8 @@ class ViewController: UIViewController {
         ageField.borderStyle = .roundedRect
         ageField.returnKeyType = UIReturnKeyType.next
         ageField.keyboardType = UIKeyboardType.numberPad
+        ageField.layer.borderColor = UIColor.systemRed.cgColor
+        ageField.layer.cornerRadius = 5
         
         let heightLabel = UILabel()
         heightLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +151,8 @@ class ViewController: UIViewController {
         heightField.borderStyle = .roundedRect
         heightField.returnKeyType = UIReturnKeyType.next
         heightField.keyboardType = UIKeyboardType.numberPad
+        heightField.layer.borderColor = UIColor.systemRed.cgColor
+        heightField.layer.cornerRadius = 5
         
         let weightLabel = UILabel()
         weightLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -114,6 +166,8 @@ class ViewController: UIViewController {
         weightField.borderStyle = .roundedRect
         weightField.returnKeyType = UIReturnKeyType.next
         weightField.keyboardType = UIKeyboardType.numberPad
+        weightField.layer.borderColor = UIColor.systemRed.cgColor
+        weightField.layer.cornerRadius = 5
         
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

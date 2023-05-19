@@ -13,6 +13,7 @@
 		E65ED3A92A12E22B0062DC4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E65ED3A82A12E22B0062DC4E /* Assets.xcassets */; };
 		E65ED3AC2A12E22B0062DC4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65ED3AA2A12E22B0062DC4E /* LaunchScreen.storyboard */; };
 		E6B9A6842A17764600F8E6BC /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6832A17764600F8E6BC /* BMIViewController.swift */; };
+		E6B9A6862A17F8F700F8E6BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6852A17F8F700F8E6BC /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E65ED3AB2A12E22B0062DC4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E65ED3AD2A12E22B0062DC4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6B9A6832A17764600F8E6BC /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
+		E6B9A6852A17F8F700F8E6BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E65ED3AA2A12E22B0062DC4E /* LaunchScreen.storyboard */,
 				E65ED3AD2A12E22B0062DC4E /* Info.plist */,
 				E6B9A6832A17764600F8E6BC /* BMIViewController.swift */,
+				E6B9A6852A17F8F700F8E6BC /* HomeViewController.swift */,
 			);
 			path = FitMate;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B9A6862A17F8F700F8E6BC /* HomeViewController.swift in Sources */,
 				E65ED3A42A12E2290062DC4E /* ViewController.swift in Sources */,
 				E6B9A6842A17764600F8E6BC /* BMIViewController.swift in Sources */,
 				E65ED3A02A12E2290062DC4E /* AppDelegate.swift in Sources */,
