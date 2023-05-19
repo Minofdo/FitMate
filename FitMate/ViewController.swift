@@ -8,6 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let ageField = UITextField()
+    let heightField = UITextField()
+    let weightField = UITextField()
+    
+    var invalidAge = false;
+    var invalidHeight = false;
+    var invalidWeight = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,12 +23,42 @@ class ViewController: UIViewController {
     }
     
     @objc func nextView() {
-        //navigationController?.pushViewController(UIViewController(), animated: true)
+        var ageResult = ageField.text?.range(
+            of: "^[0-9]+$",
+            options: .regularExpression
+        )
+        if (ageResult == nil) {
+            invalidAge = true;
+        }
+        var heightResult = heightField.text?.range(
+            of: "^[0-9]*(\\.[0-9]{0,})?$",
+            options: .regularExpression
+        )
+        if (heightResult == nil) {
+            invalidHeight = true;
+        }
+        var weightResult = weightField.text?.range(
+            of: "^[0-9]*(\\.[0-9]{0,})?$",
+            options: .regularExpression
+        )
+        if (weightResult == nil) {
+            invalidWeight = true;
+        }
+        if (invalidAge || invalidHeight || invalidWeight) {
+            return
+        }
+        //navigationController?.pushViewController(BMIViewController(), animated: true)
     }
 
     func setUpView() {
         view.backgroundColor = .purple
-        navigationController?.navigationBar.isHidden = true
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .purple
+        appearance.shadowColor = .clear
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +82,6 @@ class ViewController: UIViewController {
         ageLabel.text = "AGE"
         ageLabel.textColor = .white
         
-        let ageField = UITextField()
         ageField.translatesAutoresizingMaskIntoConstraints = false
         ageField.placeholder = "Age (years)"
         ageField.backgroundColor = .tertiarySystemBackground
@@ -58,7 +95,6 @@ class ViewController: UIViewController {
         heightLabel.text = "HEIGHT"
         heightLabel.textColor = .white
         
-        let heightField = UITextField()
         heightField.translatesAutoresizingMaskIntoConstraints = false
         heightField.placeholder = "Height (centimetres)"
         heightField.backgroundColor = .tertiarySystemBackground
@@ -72,7 +108,6 @@ class ViewController: UIViewController {
         weightLabel.text = "WEIGHT"
         weightLabel.textColor = .white
         
-        let weightField = UITextField()
         weightField.translatesAutoresizingMaskIntoConstraints = false
         weightField.placeholder = "Weight (kilograms)"
         weightField.backgroundColor = .tertiarySystemBackground
@@ -82,7 +117,7 @@ class ViewController: UIViewController {
         
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Find Plans", for: .normal)
+        button.setTitle("Calculate BMI", for: .normal)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
         button.backgroundColor = .systemPink.withAlphaComponent(0.5)
         button.layer.borderWidth = 2
@@ -107,12 +142,12 @@ class ViewController: UIViewController {
             scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            fitMate.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            fitMate.topAnchor.constraint(equalTo: scrollView.topAnchor),
             fitMate.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             fitMate.widthAnchor.constraint(equalToConstant: 200),
-            fitMate.heightAnchor.constraint(equalToConstant: 150),
+            fitMate.heightAnchor.constraint(equalToConstant: 100),
             
-            tip.topAnchor.constraint(equalTo: fitMate.bottomAnchor, constant: 10),
+            tip.topAnchor.constraint(equalTo: fitMate.bottomAnchor, constant: 30),
             tip.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
             tip.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
@@ -142,7 +177,7 @@ class ViewController: UIViewController {
             
             button.topAnchor.constraint(equalTo: weightField.bottomAnchor, constant: 40),
             button.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -30),
-            button.widthAnchor.constraint(equalToConstant: 150),
+            button.widthAnchor.constraint(equalToConstant: 160),
             button.heightAnchor.constraint(equalToConstant: 50),
             button.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ])
