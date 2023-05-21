@@ -26,6 +26,14 @@ class ViewController: UIViewController {
         ageField.text = (defaults.integer(forKey: "AGE") == 0) ? "" : String(defaults.integer(forKey: "AGE"))
         heightField.text = (defaults.double(forKey: "HEIGHT") == 0) ? "" : String(defaults.double(forKey: "HEIGHT"))
         weightField.text = (defaults.double(forKey: "WEIGHT") == 0) ? "" : String(defaults.double(forKey: "WEIGHT"))
+        
+        self.hideKeyboardWhenTappedAround()
+        self.addKeyboardObserver()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.removeKeyboardObserver()
     }
     
     @objc func nextView() {

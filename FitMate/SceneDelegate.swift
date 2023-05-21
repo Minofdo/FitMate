@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if (goal != nil && goal?.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
             window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         } else {
-            window?.rootViewController = UINavigationController(rootViewController: ViewController())
+            window?.rootViewController = UINavigationController(rootViewController: TrainingScheduleViewController())
         }
         window?.makeKeyAndVisible()
     }

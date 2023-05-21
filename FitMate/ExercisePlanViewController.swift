@@ -93,12 +93,9 @@ class ExercisePlanViewController: UIViewController, UITableViewDataSource, UITab
         cell.delegate = self
         cell.index = indexPath.row
         cell.exercises = plans[indexPath.row]
-        if (cell.image.image!.isSymbolImage) {
-            ImageFetcher.fetchExerciseImage(plans[indexPath.row][0].thumbnail){ (image) in
-                if let img = image {
-                    cell.image.image = img
-                    tableView.reloadData()
-                }
+        ImageFetcher.fetchExerciseImage(plans[indexPath.row][0].thumbnail){ (image) in
+            if let img = image {
+                cell.imageObj = img
             }
         }
         cell.selectionStyle = .none
@@ -108,6 +105,7 @@ class ExercisePlanViewController: UIViewController, UITableViewDataSource, UITab
     func didPressRow(sender: [Exercise]){
         let planDetailView = PlanDetailsViewController()
         planDetailView.title = "Plan Details"
+        planDetailView.exerciseList = sender
         navigationController?.pushViewController(planDetailView, animated: true)
     }
     

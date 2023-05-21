@@ -2,17 +2,17 @@
 //  ExercisePlanTableViewCell.swift
 //  FitMate
 //
-//  Created by Minoli Fernando on 2023-05-20.
+//  Created by Minoli Fernando on 2023-05-21.
 //
 
 import UIKit
 
-protocol ExercisePlanDelegate {
-    func didPressRow(sender: [Exercise])
+protocol ExerciseDelegate {
+    func didPressRow(sender: Exercise)
 }
-class ExercisePlanTableViewCell: UITableViewCell {
+class ExerciseTableViewCell: UITableViewCell {
     
-    var delegate :ExercisePlanDelegate!
+    var delegate :ExerciseDelegate!
     let label = UILabel()
     let countLabel = UILabel()
     let durationLabel = UILabel()
@@ -25,22 +25,12 @@ class ExercisePlanTableViewCell: UITableViewCell {
     }
     let image = UIImageView()
     
-    var index :Int = 0 {
+    var exercise :Exercise! {
         didSet {
-            label.text = "Plan \(index + 1)"
-        }
-    }
-    var exercises :[Exercise] = [] {
-        didSet {
-            countLabel.text = "Contains \(exercises.count) exercises"
-            var duration = 0
-            var cal = 0
-            for exercise in exercises {
-                duration += exercise.duration
-                cal += (exercise.duration * exercise.caloriesBurned)
-            }
-            durationLabel.text = "Duration : \(duration) mins"
-            calorieLabel.text = "Calories : \(cal) kcal"
+            label.text = exercise.name
+            countLabel.text = exercise.difficulty
+            durationLabel.text = "Duration : \(exercise.duration) mins"
+            calorieLabel.text = "Calories : \(exercise.caloriesBurned * exercise.duration) kcal"
         }
     }
     
@@ -55,7 +45,7 @@ class ExercisePlanTableViewCell: UITableViewCell {
     }
     
     @objc func rowClicked() {
-        delegate.didPressRow(sender: exercises)
+        delegate.didPressRow(sender: exercise)
     }
     
     func setUpView() {
@@ -75,8 +65,9 @@ class ExercisePlanTableViewCell: UITableViewCell {
         image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.adjustsFontForContentSizeCategory = true
-        label.font = .boldSystemFont(ofSize: 30)
+        label.font = .boldSystemFont(ofSize: 20)
         
         countLabel.translatesAutoresizingMaskIntoConstraints = false
         countLabel.adjustsFontForContentSizeCategory = true
@@ -110,6 +101,7 @@ class ExercisePlanTableViewCell: UITableViewCell {
             
             label.topAnchor.constraint(equalTo: container.topAnchor, constant: 5),
             label.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 10),
+            label.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -10),
             
             calorieLabel.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -10),
             calorieLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10),

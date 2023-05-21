@@ -20,6 +20,9 @@
 		E6B9A6992A19AF9900F8E6BC /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6982A19AF9900F8E6BC /* Exercise.swift */; };
 		E6B9A69B2A19C8AF00F8E6BC /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A69A2A19C8AF00F8E6BC /* ImageFetcher.swift */; };
 		E6B9A69D2A19D7F400F8E6BC /* PlanDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A69C2A19D7F400F8E6BC /* PlanDetailsViewController.swift */; };
+		E6B9A6A12A19F6BE00F8E6BC /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6A02A19F6BE00F8E6BC /* Extentions.swift */; };
+		E6B9A6B22A1A6F7900F8E6BC /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6B12A1A6F7900F8E6BC /* ExerciseTableViewCell.swift */; };
+		E6B9A6B42A1A75B700F8E6BC /* TrainingScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6B32A1A75B700F8E6BC /* TrainingScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		E6B9A6982A19AF9900F8E6BC /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		E6B9A69A2A19C8AF00F8E6BC /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		E6B9A69C2A19D7F400F8E6BC /* PlanDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailsViewController.swift; sourceTree = "<group>"; };
+		E6B9A6A02A19F6BE00F8E6BC /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		E6B9A6B12A1A6F7900F8E6BC /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		E6B9A6B32A1A75B700F8E6BC /* TrainingScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 		E65ED39E2A12E2290062DC4E /* FitMate */ = {
 			isa = PBXGroup;
 			children = (
+				E6B9A69F2A19F69F00F8E6BC /* Extentions */,
 				E6B9A6972A19AF8300F8E6BC /* Modal */,
 				E6B9A6942A19AE6E00F8E6BC /* Services */,
 				E6B9A6912A19A59B00F8E6BC /* ListItems */,
@@ -83,6 +90,7 @@
 				E6B9A6852A17F8F700F8E6BC /* HomeViewController.swift */,
 				E6B9A68F2A19A55500F8E6BC /* ExercisePlanViewController.swift */,
 				E6B9A69C2A19D7F400F8E6BC /* PlanDetailsViewController.swift */,
+				E6B9A6B32A1A75B700F8E6BC /* TrainingScheduleViewController.swift */,
 			);
 			path = FitMate;
 			sourceTree = "<group>";
@@ -90,6 +98,7 @@
 		E6B9A6912A19A59B00F8E6BC /* ListItems */ = {
 			isa = PBXGroup;
 			children = (
+				E6B9A6B12A1A6F7900F8E6BC /* ExerciseTableViewCell.swift */,
 				E6B9A6922A19A69600F8E6BC /* ExercisePlanTableViewCell.swift */,
 			);
 			path = ListItems;
@@ -110,6 +119,14 @@
 				E6B9A6982A19AF9900F8E6BC /* Exercise.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		E6B9A69F2A19F69F00F8E6BC /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				E6B9A6A02A19F6BE00F8E6BC /* Extentions.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,13 +203,16 @@
 				E6B9A6862A17F8F700F8E6BC /* HomeViewController.swift in Sources */,
 				E65ED3A42A12E2290062DC4E /* ViewController.swift in Sources */,
 				E6B9A6962A19AED500F8E6BC /* Firebase.swift in Sources */,
+				E6B9A6B22A1A6F7900F8E6BC /* ExerciseTableViewCell.swift in Sources */,
 				E6B9A6902A19A55500F8E6BC /* ExercisePlanViewController.swift in Sources */,
 				E6B9A6932A19A69600F8E6BC /* ExercisePlanTableViewCell.swift in Sources */,
 				E6B9A6842A17764600F8E6BC /* BMIViewController.swift in Sources */,
 				E65ED3A02A12E2290062DC4E /* AppDelegate.swift in Sources */,
+				E6B9A6A12A19F6BE00F8E6BC /* Extentions.swift in Sources */,
 				E65ED3A22A12E2290062DC4E /* SceneDelegate.swift in Sources */,
 				E6B9A6992A19AF9900F8E6BC /* Exercise.swift in Sources */,
 				E6B9A69B2A19C8AF00F8E6BC /* ImageFetcher.swift in Sources */,
+				E6B9A6B42A1A75B700F8E6BC /* TrainingScheduleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
