@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         invalidWeight = (weightResult == nil)
         if (!invalidWeight) {
             numWeight = Double(weightField.text ?? "0")!
-            if (numWeight < 5 || numWeight > 250) {
+            if (numWeight < 5 || numWeight > 500) {
                 invalidWeight = true
             }
         }
@@ -70,8 +70,6 @@ class ViewController: UIViewController {
         ageField.layer.borderWidth = (invalidAge ? 2 : 0)
         heightField.layer.borderWidth = (invalidHeight ? 2 : 0)
         weightField.layer.borderWidth = (invalidWeight ? 2 : 0)
-        
-        print(invalidAge, invalidHeight, invalidWeight)
         
         if (invalidAge || invalidHeight || invalidWeight) {
             let errorAlert = UIAlertController(title: "Alert", message: "Please fill all fields with valid values", preferredStyle: .alert)
@@ -129,7 +127,6 @@ class ViewController: UIViewController {
         ageField.placeholder = "Age (years)"
         ageField.backgroundColor = .tertiarySystemBackground
         ageField.borderStyle = .roundedRect
-        ageField.returnKeyType = UIReturnKeyType.next
         ageField.keyboardType = UIKeyboardType.numberPad
         ageField.layer.borderColor = UIColor.systemRed.cgColor
         ageField.layer.cornerRadius = 5
@@ -144,8 +141,7 @@ class ViewController: UIViewController {
         heightField.placeholder = "Height (centimetres)"
         heightField.backgroundColor = .tertiarySystemBackground
         heightField.borderStyle = .roundedRect
-        heightField.returnKeyType = UIReturnKeyType.next
-        heightField.keyboardType = UIKeyboardType.numberPad
+        heightField.keyboardType = UIKeyboardType.decimalPad
         heightField.layer.borderColor = UIColor.systemRed.cgColor
         heightField.layer.cornerRadius = 5
         
@@ -159,8 +155,7 @@ class ViewController: UIViewController {
         weightField.placeholder = "Weight (kilograms)"
         weightField.backgroundColor = .tertiarySystemBackground
         weightField.borderStyle = .roundedRect
-        weightField.returnKeyType = UIReturnKeyType.next
-        weightField.keyboardType = UIKeyboardType.numberPad
+        weightField.keyboardType = UIKeyboardType.decimalPad
         weightField.layer.borderColor = UIColor.systemRed.cgColor
         weightField.layer.cornerRadius = 5
         

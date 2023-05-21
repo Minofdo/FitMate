@@ -9,8 +9,8 @@ import UIKit
 
 class BMIViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var bmi :Double = 24.66
-    var age :Int = 23
+    var bmi :Double = 0
+    var age :Int = 0
     
     let statusLabel = UILabel()
     let suggestionLabel = UILabel()
@@ -87,7 +87,9 @@ class BMIViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDe
     @objc func nextView() {
         let defaults = UserDefaults.standard
         defaults.set(selectedGoal?.prefix(1), forKey: "GOAL")
-        navigationController?.pushViewController(HomeViewController(), animated: true)
+        let planView = ExercisePlanViewController()
+        planView.selectedGoal = selectedGoal ?? "Muscle Build"
+        navigationController?.pushViewController(planView, animated: true)
     }
     
     func setUpView() {

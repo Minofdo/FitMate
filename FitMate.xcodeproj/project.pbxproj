@@ -14,6 +14,10 @@
 		E65ED3AC2A12E22B0062DC4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65ED3AA2A12E22B0062DC4E /* LaunchScreen.storyboard */; };
 		E6B9A6842A17764600F8E6BC /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6832A17764600F8E6BC /* BMIViewController.swift */; };
 		E6B9A6862A17F8F700F8E6BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6852A17F8F700F8E6BC /* HomeViewController.swift */; };
+		E6B9A6902A19A55500F8E6BC /* ExercisePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A68F2A19A55500F8E6BC /* ExercisePlanViewController.swift */; };
+		E6B9A6932A19A69600F8E6BC /* ExercisePlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6922A19A69600F8E6BC /* ExercisePlanTableViewCell.swift */; };
+		E6B9A6962A19AED500F8E6BC /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6952A19AED500F8E6BC /* Firebase.swift */; };
+		E6B9A6992A19AF9900F8E6BC /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9A6982A19AF9900F8E6BC /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		E65ED3AD2A12E22B0062DC4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6B9A6832A17764600F8E6BC /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		E6B9A6852A17F8F700F8E6BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E6B9A68F2A19A55500F8E6BC /* ExercisePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePlanViewController.swift; sourceTree = "<group>"; };
+		E6B9A6922A19A69600F8E6BC /* ExercisePlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePlanTableViewCell.swift; sourceTree = "<group>"; };
+		E6B9A6952A19AED500F8E6BC /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		E6B9A6982A19AF9900F8E6BC /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,9 @@
 		E65ED39E2A12E2290062DC4E /* FitMate */ = {
 			isa = PBXGroup;
 			children = (
+				E6B9A6972A19AF8300F8E6BC /* Modal */,
+				E6B9A6942A19AE6E00F8E6BC /* Services */,
+				E6B9A6912A19A59B00F8E6BC /* ListItems */,
 				E65ED39F2A12E2290062DC4E /* AppDelegate.swift */,
 				E65ED3A12A12E2290062DC4E /* SceneDelegate.swift */,
 				E65ED3A32A12E2290062DC4E /* ViewController.swift */,
@@ -66,8 +77,33 @@
 				E65ED3AD2A12E22B0062DC4E /* Info.plist */,
 				E6B9A6832A17764600F8E6BC /* BMIViewController.swift */,
 				E6B9A6852A17F8F700F8E6BC /* HomeViewController.swift */,
+				E6B9A68F2A19A55500F8E6BC /* ExercisePlanViewController.swift */,
 			);
 			path = FitMate;
+			sourceTree = "<group>";
+		};
+		E6B9A6912A19A59B00F8E6BC /* ListItems */ = {
+			isa = PBXGroup;
+			children = (
+				E6B9A6922A19A69600F8E6BC /* ExercisePlanTableViewCell.swift */,
+			);
+			path = ListItems;
+			sourceTree = "<group>";
+		};
+		E6B9A6942A19AE6E00F8E6BC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E6B9A6952A19AED500F8E6BC /* Firebase.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E6B9A6972A19AF8300F8E6BC /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				E6B9A6982A19AF9900F8E6BC /* Exercise.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +178,13 @@
 			files = (
 				E6B9A6862A17F8F700F8E6BC /* HomeViewController.swift in Sources */,
 				E65ED3A42A12E2290062DC4E /* ViewController.swift in Sources */,
+				E6B9A6962A19AED500F8E6BC /* Firebase.swift in Sources */,
+				E6B9A6902A19A55500F8E6BC /* ExercisePlanViewController.swift in Sources */,
+				E6B9A6932A19A69600F8E6BC /* ExercisePlanTableViewCell.swift in Sources */,
 				E6B9A6842A17764600F8E6BC /* BMIViewController.swift in Sources */,
 				E65ED3A02A12E2290062DC4E /* AppDelegate.swift in Sources */,
 				E65ED3A22A12E2290062DC4E /* SceneDelegate.swift in Sources */,
+				E6B9A6992A19AF9900F8E6BC /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

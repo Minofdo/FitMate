@@ -21,11 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         // Navigation controller will allow the app to navigate between views
         let defaults = UserDefaults.standard
-        let goal = defaults.string(forKey: "GOAL")
+        let goal = defaults.string(forKey: "SETUP_COMPLETE")
         if (goal != nil && goal?.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
             window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         } else {
-            window?.rootViewController = UINavigationController(rootViewController: ViewController())
+            window?.rootViewController = UINavigationController(rootViewController: ExercisePlanViewController())
         }
         window?.makeKeyAndVisible()
     }
