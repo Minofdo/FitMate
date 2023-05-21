@@ -96,6 +96,14 @@ class BMIViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDe
         view.backgroundColor = .purple
         navigationController?.navigationBar.isHidden = false
         
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .purple
+        appearance.shadowColor = .clear
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false

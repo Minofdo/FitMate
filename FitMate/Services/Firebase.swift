@@ -17,8 +17,8 @@ class Firebase {
     static let authKey = ".json?auth=s5ccaBHlOsfiEYzaMmE7TKLxb9Ghug5OYA5AKIlf"
     
     static func getRandomPlans(_ goal :String, completion:@escaping ([[Exercise]]?) -> ()) {
-        let urlPath = "\(baseURL)ALL\(authKey)"
-        let url = URL(string: urlPath)!
+//        let urlPath = "\(baseURL)ALL\(authKey)"
+//        let url = URL(string: urlPath)!
         
         do {
             var categories = try JSONDecoder().decode([Exercise].self, from: Data(str.utf8))

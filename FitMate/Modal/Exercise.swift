@@ -9,26 +9,26 @@ import Foundation
 
 struct Exercise: Codable {
     let bodyParts: [String]
-    let caloriesBurnedPerMinute: Int
+    let caloriesBurned: Int
     let category: String
     let description: String
     let difficulty: String
-    let durationMinutes: Int
+    let duration: Int
     let id: String
-    let imageURL: String
+    let thumbnail: String
     let name: String
     let howTo: [String]
     let videoURL: String
     
     enum CodingKeys: String, CodingKey {
         case bodyParts = "body_parts"
-        case caloriesBurnedPerMinute = "calories_burned_per_minute"
+        case caloriesBurned = "calories_burned_per_minute"
         case category
         case description
         case difficulty
-        case durationMinutes = "duration_minutes"
+        case duration = "duration_minutes"
         case id
-        case imageURL = "thumbnail"
+        case thumbnail = "thumbnail"
         case name
         case howTo = "how_to"
         case videoURL = "video_url"

@@ -1,20 +1,19 @@
 //
-//  HomeViewController.swift
+//  PlanDetailsViewController.swift
 //  FitMate
 //
-//  Created by Minoli Fernando on 2023-05-19.
+//  Created by Minoli Fernando on 2023-05-21.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class PlanDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.viewControllers = [self]
+        view.backgroundColor = .systemPink
         
-        view.backgroundColor = .red
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .purple
         appearance.shadowColor = .clear

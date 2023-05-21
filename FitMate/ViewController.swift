@@ -93,6 +93,7 @@ class ViewController: UIViewController {
     
     func setUpView() {
         view.backgroundColor = .purple
+        
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .purple
         appearance.shadowColor = .clear
