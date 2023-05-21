@@ -122,7 +122,7 @@ class TrainingScheduleViewController: UIViewController, UNUserNotificationCenter
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.systemPink.cgColor
         button.layer.cornerRadius = 15
-        //button.addTarget(self, action: #selector(saveDataAndSchedule), for: .touchUpInside)
+        button.addTarget(self, action: #selector(navigateToHome), for: .touchUpInside)
         scrollView.addSubview(button)
         
         NSLayoutConstraint.activate([
@@ -135,6 +135,10 @@ class TrainingScheduleViewController: UIViewController, UNUserNotificationCenter
             button.widthAnchor.constraint(equalToConstant: 160),
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    @objc func navigateToHome() {
+        navigationController?.pushViewController(HomeViewController(), animated: true)
     }
     
     @objc func testNotificationFunc() {

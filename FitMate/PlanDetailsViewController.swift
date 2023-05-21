@@ -93,8 +93,17 @@ class PlanDetailsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @objc func saveDataAndSchedule() {
-        // TODO: Save selected plan
-        navigationController?.pushViewController(TrainingScheduleViewController(), animated: true)
+        do {
+            let defaults = UserDefaults.standard
+            let data = try PropertyListEncoder().encode(exerciseList)
+            print(data)
+            defaults.set(data, forKey: "SAVED_EXERCISES")
+            navigationController?.pushViewController(TrainingScheduleViewController(), animated: true)
+        } catch {
+            let errorAlert = UIAlertController(title: "Alert", message: "Error occurred when saving data. Please try again later.", preferredStyle: .alert)
+            errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(errorAlert, animated: true, completion: nil)
+        }
     }
 
 }
